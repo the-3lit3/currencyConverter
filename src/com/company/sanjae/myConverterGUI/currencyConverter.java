@@ -1,5 +1,7 @@
 package com.company.sanjae.myConverterGUI;
 
+import jdk.dynalink.Operation;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,13 +31,11 @@ public class currencyConverter {
         jmdValue.addActionListener(e -> {
             ov = Double.parseDouble(jmdValue.toString());
         });
+
         convertButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(ct == "USD"){
-                    rate = 129.02;
 
-                }
             }
         });
 
@@ -46,5 +46,20 @@ public class currencyConverter {
             leftOperand = 0.0;
 
         });
+
+
+    }
+    private class operate implements ActionListener{
+        private Operation op;
+
+        public operate(Operation tOp){
+            this.op = tOp;
+
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
     }
 }
