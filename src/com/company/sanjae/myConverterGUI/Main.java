@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 	// write your code here
         JFrame frame = new JFrame("CurrencyConverter");
         frame.setContentPane(new currencyConverter().currencyConverterView);

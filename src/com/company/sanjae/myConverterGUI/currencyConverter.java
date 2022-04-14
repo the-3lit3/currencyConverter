@@ -5,6 +5,9 @@ import jdk.dynalink.Operation;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.beans.PropertyChangeListener;
 
 public class currencyConverter {
     private JTextField convertText;
@@ -15,51 +18,42 @@ public class currencyConverter {
     private JLabel JMDValueLabel;
     private JLabel currencyTypeLabel;
     private JLabel lblInputValue;
-    private double leftOperand;
-    private String ct;
-    private double ov, rate;
+    private double iv, ov;
+    String x;
 
     JPanel currencyConverterView;
 
+    findConversionUSD usd = new findConversionUSD();
+
     currencyConverter(){
-
-        convertText.addActionListener(e -> leftOperand = Double.parseDouble(convertText.getText()));
-
-        currencyTypeComboBox.addActionListener(e -> {
-            ct = String.valueOf(currencyTypeComboBox.getSelectedIndex());
-        });
-        jmdValue.addActionListener(e -> {
-            ov = Double.parseDouble(jmdValue.toString());
-        });
-
-        convertButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
 
         clearButton.addActionListener(e -> {
             jmdValue.setText("");
             convertText.setText("");
             currencyTypeComboBox.setSelectedIndex(0);
-            leftOperand = 0.0;
 
         });
+        convertButton.addActionListener(e -> {
 
+        });
+        convertText.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                iv = Double.parseDouble(convertText.getText());
 
+            }
+        });
+        jmdValue.addActionListener(e -> {
+
+        });
     }
-    private class operate implements ActionListener{
-        private Operation op;
 
-        public operate(Operation tOp){
-            this.op = tOp;
-
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
+    private void actionPerformed(ActionEvent e) {
+        usd.setValues(iv);
+        ov = usd.getConversionResult();
+        x = String.valueOf(ov);
+        jmdValue.setText(x);
     }
+
 }
