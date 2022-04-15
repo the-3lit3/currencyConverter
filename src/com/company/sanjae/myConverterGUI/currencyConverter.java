@@ -15,23 +15,30 @@ public class currencyConverter {
     private JLabel currencyTypeLabel;
     private JLabel lblInputValue;
     private JLabel currencyConvLbl;
+
     JPanel currencyConverterView;
 
     currencyConverter(){
 
         DecimalFormat df = new DecimalFormat("0.00");
         convertButton.addActionListener(new ActionListener() {
+            /*
+            The anonymous new ActionListener() method can be replaced with
+            the lambda expression e -> {}. This would eliminate the need to import
+            the following classes: java.awt.event.ActionEvent
+                                   java.awt.event.ActionListener
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Code for converting currency from a foreign denomination to a local denomination.
                     try{
                         //Try clause to test the code logic and provide for a way to handle any errors that may arise
                         double inputValue = Double.parseDouble(convertText.getText());
-                        if(inputValue == 0) {
+                        if(inputValue <= 0) {
                             JOptionPane.showMessageDialog(convertText, "Invalid input. Input text field appears empty.", "Error", JOptionPane.WARNING_MESSAGE);
                         }
                         int currencyType = currencyTypeComboBox.getSelectedIndex();
-                        if(currencyType == 0) {
+                        if(currencyType <= 0) {
                             JOptionPane.showMessageDialog(currencyTypeComboBox, "Invalid input. Select an option from the dropdown box.", "Error", JOptionPane.WARNING_MESSAGE);
                         }
                         switch(currencyType){
