@@ -43,12 +43,12 @@ public class currencyConverter {
                             }
                             case 2:{
                                 double jmdConversion = inputValue * 97.50f;
-                                jmdValue.setText(String.valueOf(jmdConversion));
+                                jmdValue.setText(String.valueOf(df.format(jmdConversion)));
                                 break;
                             }
                             case 3:{
                                 double jmdConversion = inputValue * 164.33f;
-                                jmdValue.setText(String.valueOf(jmdConversion));
+                                jmdValue.setText(String.valueOf(df.format(jmdConversion)));
                                 break;
                             }
 
