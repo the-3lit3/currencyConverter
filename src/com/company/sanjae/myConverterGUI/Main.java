@@ -16,7 +16,7 @@ public class Main {
         frame.setVisible(true);
     }
 
-    currencyConverter cv = new currencyConverter();
+    //currencyConverter cv = new currencyConverter();
 
 
 }
