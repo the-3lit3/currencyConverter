@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args){
         JFrame frame = new JFrame("CurrencyConverter");
         frame.setContentPane(new currencyConverter().currencyConverterView);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
