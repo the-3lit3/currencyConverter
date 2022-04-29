@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.sanjae.myConverterGUI.currencyConverter">
   <grid id="27dc6" binding="currencyConverterView" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="0" left="0" bottom="0" right="0"/>
+    <margin top="5" left="5" bottom="5" right="5"/>
     <constraints>
       <xy x="20" y="20" width="418" height="376"/>
     </constraints>
     <properties/>
-    <border type="bevel-lowered" title="Currency Converter"/>
+    <border type="etched" title="Currency Converter"/>
     <children>
       <component id="6f1e9" class="javax.swing.JLabel" binding="lblInputValue">
         <constraints>
@@ -22,7 +22,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <toolTipText value="Enter amount to be converted to Jamaican Dollars."/>
+        </properties>
       </component>
       <component id="7ce7d" class="javax.swing.JComboBox" binding="currencyTypeComboBox">
         <constraints>
@@ -35,6 +37,7 @@
             <item value="CAD"/>
             <item value="EUR"/>
           </model>
+          <toolTipText value="Select currency type to be converted."/>
         </properties>
       </component>
       <component id="ad663" class="javax.swing.JLabel" binding="JMDValueLabel">
@@ -67,6 +70,7 @@
         </constraints>
         <properties>
           <text value="Clear"/>
+          <toolTipText value="Reset form fields"/>
         </properties>
       </component>
       <component id="bfb4e" class="javax.swing.JButton" binding="convertButton">
@@ -75,6 +79,7 @@
         </constraints>
         <properties>
           <text value="Convert"/>
+          <toolTipText value="Submit form to be processed."/>
         </properties>
       </component>
       <component id="40274" class="javax.swing.JTextField" binding="jmdValue">
@@ -85,6 +90,7 @@
         </constraints>
         <properties>
           <editable value="false"/>
+          <toolTipText value="Converted dollar value."/>
         </properties>
       </component>
     </children>
